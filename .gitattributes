@@ -1,0 +1,21 @@
+# Normalize line endings in the repository, but NEVER munge the script bytes.
+#
+# The PowerShell scripts in this repository must stay pure ASCII and byte-stable: an
+# end-of-line conversion would change every byte of the file, and a BOM-less non-ASCII
+# .ps1 is read as ANSI mojibake by PowerShell 5.1. Keep script text verbatim.
+
+* text=auto eol=lf
+
+*.ps1  -text
+*.psm1 -text
+*.cmd  -text
+*.bat  -text
+
+*.md   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+
+*.png  binary
+*.jpg  binary
+*.pdf  binary
+*.zip  binary
